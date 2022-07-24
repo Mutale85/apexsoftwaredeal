@@ -60,7 +60,7 @@
 						<h3 class="mb-5 text-center">Discounted Products</h3>
 						<div class="row">
 							<?php
-								$query = $connect->prepare("SELECT * FROM `products` ORDER BY id DESC ");
+								$query = $connect->prepare("SELECT * FROM `products` WHERE user_delete = '0' ORDER BY id DESC ");
 						        $query->execute();
 						        if ($query->rowCount() > 0) {
 						            foreach($query->fetchAll() as $row){

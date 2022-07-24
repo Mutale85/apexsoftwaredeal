@@ -68,10 +68,10 @@
 				</head>
 				<body>
 				    <div class="mailDiv">
-				      	<p align="center"><img src="https://golinkjobs.com/images/Gologo.png" width="80"></p>
+				      	<p align="center"><img src="https://apexsoftwaredeals.com/images/logo.png" width="80"></p>
 				      	<h3>Hello '.$username.'</h3>
 				    	<p>Welcome to apexsoftwaredeals, we love to see you grow. </p>
-				    	<p>Use the link to verify your email</p><p> http://localhost/apexsoftwaredeals.com/activation?userid='.$parent_id.'&email='.$email.'&pass='.$password.'"</p>
+				    	<p>Use the link to verify your email</p><p> https://apexsoftwaredeals.com/activation?userid='.$parent_id.'&email='.$email.'&pass='.$password.'"</p>
 				    </div>
 				</bod>
 			</html>

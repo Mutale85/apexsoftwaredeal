@@ -14,6 +14,9 @@
 <script src="dist/js/bootstrap.bundle.min.js"></script>
 <script src="dist/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="dist/js/toastr.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 
 <title>ApexSoftwaredeals - Earning From Your Hard Works</title>
 

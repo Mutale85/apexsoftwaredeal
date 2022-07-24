@@ -2,6 +2,7 @@
 <html lang="en">
   	<head>
     	<?php include("incs/header.php") ?>
+    	<?php include("incs/session.php") ?>
   	</head>
   	<body>
     	<?php include("incs/nav.php")?>

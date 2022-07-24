@@ -1,4 +1,5 @@
-<base href="http://localhost/apexsoftwaredeals.com/">
+<base href="https://apexsoftwaredeals.com/">
+<!-- <base href="http://localhost/apexsoftwaredeals.com/"> -->
 <!DOCTYPE html>
 <html>
 <head>

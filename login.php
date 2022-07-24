@@ -2,11 +2,7 @@
 <html lang="en">
   	<head>
     	<?php include("incs/header.php") ?>
-    	<?php 
-    		if(isset($_SESSION['apex_email'])){
-    			header("location:home");
-    		}
-    	?>
+    	<?php include("incs/session.php") ?>
   	</head>
   	<body>
     	<?php include("incs/nav.php")?>
@@ -20,7 +16,8 @@
 		                <p onclick="show()" id="showimg">SHOW</p>
 		                <span id="vaild-pass"></span>
 		                <button type="submit" id="loginBtn">SIGN IN</button>
-		                <p class="message"><a href="#">Forgot your password?</a></p>
+		                <p class="message"><a href="forgot-password">Forgot your password?</a></p>
+		                <p class="message"><a href="register" title="register" class="btn btn-secondary text-white">Create an Account</a></p>
 		            </form>
 		        </div>
     		</div>

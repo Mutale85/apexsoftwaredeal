@@ -2,11 +2,7 @@
 <html lang="en">
   	<head>
     	<?php include("incs/header.php") ?>
-    	<?php if(isset($_SESSION['apex_email'])){?>
-    		<script>
-    			window.location = 'home';
-    		</script>
-    	<?php }?>
+    	<?php include("incs/session.php") ?>
   	</head>
   	<body>
     	<?php include("incs/nav.php")?>

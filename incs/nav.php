@@ -14,13 +14,16 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item">
-			      	<a class="nav-link warning" href="explore-deals" title="contact">Explore Deals</a>
+			      	<a class="nav-link" href="explore-deals" title="contact">Explore Deals</a>
 			    </li>
 			    <li class="nav-item">
-			      	<a class="nav-link dark ml-5" aria-current="page" href="login" title="login">Login</a>
+			      	<a class="nav-link" href="login" title="login">Login</a>
+			    </li>
+			    <li class="nav-item">
+			      	<a class="nav-link" href="register" title="register">Create Account</a>
 			    </li>
 	    		<li class="nav-item">
-	      			<a class="nav-link info ml-5" href="login" title="login">Submit Product</a>
+	      			<a class="nav-links text-white btn btn-info shadow" href="login" title="login">Submit Product</a>
 	    		</li>
 	  		</ul>
 		</div>
@@ -44,7 +47,7 @@
 			      	<a class="nav-link warning" href="explore-deals" title="contact">Explore Deals</a>
 			    </li>
 	    		<li class="nav-item">
-	      			<a class="nav-link info ml-5" href="submit-product" title="submit-product">Submit Product</a>
+	      			<a class="nav-links text-white btn btn-info shadow" href="submit-product" title="submit-product">Submit Product</a>
 	    		</li>
 	  		
 		  		<li class="nav-item">

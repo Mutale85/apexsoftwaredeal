@@ -7,6 +7,9 @@
     	<?php include("incs/nav.php")?>
     	<div class="container">
     		<div class="row">
+    			<div class="col-md-12 text-center mb-5">
+					<h4>Welcome <?php echo $_SESSION['username']?></h4>
+				</div>
     			<div class="col-md-6 mb-4">
     				<form method="post" id="productForm" enctype="multipart/form-data">
 						<div class="row">
@@ -96,37 +99,41 @@
 								<label class="mb-2">Discount Link</label>
 								<input type="url" name="discount_link" id="discount_link" class="form-control" required>
 							</div>
+						<?php if(isset($_SESSION['apex_email'])):?>
     						<label>
 								<input class="form-check-input mb-4" type="checkbox" name="terms" id="terms" required > I agree to <a href="terms-and-conditions" class="text-decoration-none">Terms and Conditions</a>
 							</label>
     						<div class="col-md-12">
     							<button class="btn btn-outline-secondary shadow" id="submitBtn">Submit Product</span> </button>
     						</div>
+    					<?php else:?>
+    						<div class="col-md-12">
+    							<a href="login" title="login" class="btn btn-secondary">Login </a> / <a href="register" title="register" class="btn btn-secondary">Create your account</a>
+    						</div>
+    					<?php endif;?>
     					</div>
 					</form>
     			</div>
     			<div class="col-md-6">
     				<div class="forBigScreen border p-3">
-					<h3 class=" text-center mb-3">Product Preview</h3>
-    				<hr style="width: 10%; margin: .2em auto; margin-bottom: 1em; height: 7px; background: orangered; border-radius: .5em;">
-					<div class="card" style="width: 100%;">
-  						<div class="expandedImg mb-3">
-  							<img src="images/" id="expandedImg" class="card-img-top" width="640" height="426" alt="...">
-  						</div>
-  						
-  						<div class="card-body">
-  							
-    						<h4 class="card-title border-bottom pb-3 mb-3"><span id="productname_span" class="text-center"> </span> </h4>
-    						<p class="card-text text-dark fs-6" >Category: <span id="category_span" class="float-end"> </span></p>
-    						<p class="card-text text-dark fs-6" >Website: <span id="website_url_span" class="float-end"> </span></p>
-    						<p class="card-text">Description: <span id="description_span" class="float-end"></span></p>
-    						<p>Current Price: <span class="float-end"><span id="current_plan_currency_span"></span> <span id="amount_span"></span></span></p>
-    						<p>Discounted Price: <span class="float-end"><span id="selling_currency_span"></span> <span id="selling_price_span"></span></span></p>
-    						<p>Duration: <span id="price_period_span" class="float-end"></span> </p>
-    						<p>Discount link <span id="discount_link_span" class="float-end"></span></p>
-  						</div>
+						<h3 class=" text-center mb-3">Product Preview</h3>
+	    				<hr style="width: 10%; margin: .2em auto; margin-bottom: 1em; height: 7px; background: orangered; border-radius: .5em;">
+						<div class="card" style="width: 100%;">
+	  						<div class="expandedImg mb-3">
+	  							<img src="images/" id="expandedImg" class="card-img-top" width="640" height="426" alt="...">
+	  						</div>
+	  						<div class="card-body">
+	    						<h4 class="card-title border-bottom pb-3 mb-3"><span id="productname_span" class="text-center"> </span> </h4>
+	    						<p class="card-text text-dark fs-6" >Category: <span id="category_span" class="float-end"> </span></p>
+	    						<p class="card-text text-dark fs-6" >Website: <span id="website_url_span" class="float-end"> </span></p>
+	    						<p class="card-text">Description: <span id="description_span" class="float-end"></span></p>
+	    						<p>Current Price: <span class="float-end"><span id="current_plan_currency_span"></span> <span id="amount_span"></span></span></p>
+	    						<p>Discounted Price: <span class="float-end"><span id="selling_currency_span"></span> <span id="selling_price_span"></span></span></p>
+	    						<p>Duration: <span id="price_period_span" class="float-end"></span> </p>
+	    						<p>Discount link <span id="discount_link_span" class="float-end"></span></p>
+	  						</div>
+						</div>
 					</div>
-				</div>
     			</div>
     		</div>
     	</div>
