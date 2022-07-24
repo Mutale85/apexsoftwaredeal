@@ -1,0 +1,254 @@
+body {
+	font-family: proxima-nova,Sans-serif;
+}
+a:link, a:active {
+    text-decoration: none;
+}
+.infoTitle {
+    color: #1e2a37;
+    font-size: 60px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.infoTitleTwo {
+	font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-align: justify-all;
+}
+.sectionTwo {
+	--stripe: #cfd8dc;
+		--bg: #e1e1e1;
+
+	background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
+	linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0,
+	linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+	linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+	background-size: 100px 100px;
+	background-color: var(--stripe);
+}
+
+.expandedImg {
+	height: 400px;
+	border: 1px solid gray;
+	background-color: lightgrey;
+}
+.expandedImg img {
+	display: none;
+}
+/*==================== LOGIN FORM ==================*/
+.login-page {
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+	position: relative;
+	filter:drop-shadow(0 0 2px #000000);
+	border-radius: 5px;
+	width: 360px;
+	/*height: 100%;*/
+	background-color: #ffffff;
+	padding:40px;
+}
+
+.form img {
+    position: absolute;
+    height: 20px;
+    top: 230px;
+    right: 60px;
+    cursor: pointer;
+}
+
+.form input {
+    outline: 0;
+    background: #f2f2f2;
+    border-radius: 4px;
+    width: 100%;
+    border: 0;
+    margin: 15px 0;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.form input:focus {
+    box-shadow: 0 0 5px 0 rgba(106, 98, 210);
+}
+
+.login-page span {
+    color: red;
+    margin: 10px 0;
+    font-size: 14px;
+}
+#showimg {
+	cursor: pointer;
+}
+.form button {
+    outline: 0;
+    background: #6a62d2;
+    width: 100%;
+    border: 0;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
+    background: black;
+    color: #fff;
+
+}
+
+.message{
+    margin: 15px 0;
+    text-align: center;
+
+}
+.form .message a {
+    font-size: 14px;
+    color: #6a62d2;
+    text-decoration: none;
+}
+
+/* ================================== BUTTONS ========================= */
+
+/* From uiverse.io */
+a.learn-more {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+a.learn-more {
+    width: 12rem;
+    height: auto;
+}
+
+a.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
+
+a.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+a.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+a.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+a.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+a.learn-more:hover .circle {
+    width: 100%;
+}
+
+a.learn-more:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+a.learn-more:hover .button-text {
+    color: #fff;
+}
+
+/*================= PRODUCTS PAGE =====================*/
+
+    
+.displayProduct {
+    width: 60%;
+    margin: 2em auto;
+}
+.cards {
+    border: .5px solid #d1d1d1;
+    padding: 1em;
+}
+img.card-img-top {
+    height: fit-content;
+}
+
+/*======================================SMALL SCREEN=============*/
+@media screen and (max-width: 768px) {
+	.infoTitle {
+		font-size: 45px;
+	}
+	.infoTitleTwo {
+		font-size: 35px;
+	}
+
+	.form {
+		filter:none;
+	}
+    .displayProduct {
+        width: 100%;
+        margin: 2em auto;
+    }
+    .categoryList {
+        display: none;
+    }
+    .cards {
+        border: none;
+        padding: .2em;
+        border-bottom: .5px solid #d1d1d1;;
+    }	
+}
+
