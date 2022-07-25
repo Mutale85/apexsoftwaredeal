@@ -16,11 +16,11 @@
 					</div>
 					<div class="col-md-12 mb-5 text-center">
 						<div class="subscribeDiv">
-							<form method="post" id="subscribeForm" class="inline-form">
+							<form method="post" id="subscribersForm" class="inline-form">
 								<div class="form-group">
 									<div class="input-group">
 										<input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
-										<button class="btn btn-outline-secondary"> <img src="images/partner.gif" class="img-fluid" alt="partner" width="20" > Send me deals</button>
+										<button class="btn btn-outline-secondary" type="submit" id="submitNow"> <img src="images/partner.gif" class="img-fluid" alt="partner" width="20" > Send me deals</button>
 									</div>
 								</div>
 							</form>

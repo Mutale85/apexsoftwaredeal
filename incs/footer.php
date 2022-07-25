@@ -126,21 +126,21 @@
         }
 
         .subscribe__btn {
-        background-color: transparent;
-        border-radius: 0 25px 25px 0;
-        color: #01c7e9;
-        cursor: pointer;
-        display: block;
-        font-size: 20px;
-        height: 60px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 60px;
+            background-color: transparent;
+            border-radius: 0 25px 25px 0;
+            color: #01c7e9;
+            cursor: pointer;
+            display: block;
+            font-size: 20px;
+            height: 60px;
+            position: absolute;
+            right: 4px;
+            top: 0;
+            width: 60px;
         }
         .subscribe__btn i{transition: all 0.3s ease 0s;}
         @media only screen and (max-width:768px) { 
-        .subscribe__btn{right:0px;}
+            .subscribe__btn{right:0px;}
         }
 
         .subscribe__btn:hover i{
@@ -158,9 +158,9 @@
         /*START SOCIAL PROFILE CSS*/
         .social_profile {margin-top:40px;}
         .social_profile ul{
-        list-style: outside none none;
-        margin: 0;
-        padding: 0;
+            list-style: outside none none;
+            margin: 0;
+            padding: 0;
         }
         .social_profile ul li{float:left;}
         .social_profile ul li a {
@@ -179,7 +179,7 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
         @media only screen and (max-width:768px) { 
-        .social_profile ul li a{margin-right:10px;margin-bottom:10px;}
+            .social_profile ul li a{margin-right:10px;margin-bottom:10px;}
         }
         @media only screen and (max-width:480px) { 
         .social_profile ul li a{
@@ -189,10 +189,10 @@
         }
         }
         .social_profile ul li a:hover{
-        background:#ff3666;
-        border: 1px solid #ff3666;
-        color:#0dcaf0;
-        border:0px;
+            background:#ff3666;
+            border: 1px solid #ff3666;
+            color:#0dcaf0;
+            border:0px;
         }
         /*END SOCIAL PROFILE CSS*/
         .copyright {
@@ -234,9 +234,9 @@
                 <div class="single_footer single_footer_address">
                     <h4>Subscribe today</h4>
                     <div class="signup_form">                           
-                        <form action="#" class="subscribe">
+                        <form action="#" class="subscribe" id="subscribersForm2">
                             <input type="text" name="email" id="email" class="subscribe__input" placeholder="Enter Email Address">
-                            <button type="button" class="subscribe__btn"><img src="images/partner.gif" class="img-fluid" alt="partner" width="30" > <i class="bi bi-envelope"></i></button>
+                            <button type="submit" class="subscribe__btn"><img src="images/partner.gif" class="img-fluid" alt="partner" width="30" > <i class="bi bi-envelope"></i></button>
                         </form>
                     </div>
                 </div>
@@ -256,4 +256,43 @@
         </div><!--- END ROW -->                 
     </div><!--- END CONTAINER -->
 </div>
+
+<script>
+    $(function(){
+        $("#subscribersForm").submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                url:"parsers/subscribe",
+                method:"POST",
+                data:$(this).serialize(),
+                beforeload:function(){
+                    $("#submitNow").html("<span class='spinner-grow spinner-grow-sm'></span> Working....")
+                },
+                success:function(data){
+                    $("#submitNow").html('<img src="images/partner.gif" class="img-fluid" alt="partner" width="20" > Send me deals');
+                    $("#subscribersForm")[0].reset();
+                    successNow(data);
+                }
+            })
+        })
+
+        $("#subscribersForm2").submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                url:"parsers/subscribe",
+                method:"POST",
+                data:$(this).serialize(),
+                beforeload:function(){
+                    $(".subscriberBtn").html("<span class='spinner-grow spinner-grow-sm'></span>");
+                    
+                },
+                success:function(data){
+                    $(".subscribe__btn").html('<img src="images/partner.gif" class="img-fluid" alt="partner" width="30" > <i class="bi bi-envelope"></i>');
+                    $("#subscribersForm2")[0].reset();
+                    successNow(data);
+                }
+            })
+        })
+    })
+</script>
 
