@@ -3,7 +3,7 @@
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="./"><img src="images/logo.png" alt="logo" width="40"></a>
+		<a class="navbar-brand" href="./"> <img src="images/apexLogo copy.png" class="logo img-fluid" width="100" alt="rocket" > </a>
 		<div class="navbar-toggler three cols" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 		    <div class="hamburger" id="hamburger-3">
 		      	<span class="line"></span>
@@ -13,6 +13,9 @@
 		</div>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+			      	<a class="nav-link" href="pricing" title="pricing">Pricing</a>
+			    </li>
 				<li class="nav-item">
 			      	<a class="nav-link" href="explore-deals" title="contact">Explore Deals</a>
 			    </li>
@@ -33,7 +36,7 @@
 <?php else:?>
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="./"><img src="images/logo.png" alt="logo" width="40"></a>
+		<a class="navbar-brand" href="./"> <img src="images/apexLogo copy.png" class="logo img-fluid" width="100" alt="rocket" ></a>
 		<div class="navbar-toggler three cols" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 		    <div class="hamburger" id="hamburger-3">
 		      	<span class="line"></span>

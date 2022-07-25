@@ -2,13 +2,6 @@
 <html lang="en">
   	<head>
     	<?php include("incs/header.php") ?>
-    	<style>
-    		
-			.bi-asterisk {
-				font-size: 11px;
-			}
-    	</style>
-    	
   	</head>
   	<body>
     	<?php include("incs/nav.php")?>
@@ -54,7 +47,7 @@
     						</div>
     						<div class="form-group mb-3 col-md-4">
     							<label class="mb-2 label">Website Url <i class="bi bi-asterisk"></i></label>
-    							<input type="url" name="website_url" id="website_url" class="form-control" required onblur="getUrl(this.value)">
+    							<input type="url" name="website_url" id="website_url" class="form-control" required>
     						</div>	
     						<div class="form-group mb-3 col-md-12">
     							<label class="mb-2 label">Description <i class="bi bi-asterisk"></i></label>
@@ -100,11 +93,12 @@
     								</select>
     							</div>
     						</div>
-    						
-								<!-- <input type="file" name="cover_image" id="cover_image" class="form-control" onchange="loadFile(event)" required accept="image/*"> -->
-							<input type="hidden" name="cover_image" id="cover_image" class="form-control" required >
     						<div class="form-group mb-3 col-md-6 mb-3">
-								<label class="mb-2">Your Pricing Page</label>
+								<label class="mb-2">Cover Image</label>
+								<input type="file" name="cover_image" id="cover_image" class="form-control" onchange="loadFile(event)" required accept="image/*">
+							</div>
+    						<div class="form-group mb-3 col-md-12 mb-3">
+								<label class="mb-2">Discount Link</label>
 								<input type="url" name="discount_link" id="discount_link" class="form-control" required>
 							</div>
 						<?php if(isset($_SESSION['apex_email'])):?>
@@ -126,10 +120,9 @@
     				<div class="forBigScreen border p-3">
 						<h3 class=" text-center mb-3">Product Preview</h3>
 	    				<hr style="width: 10%; margin: .2em auto; margin-bottom: 1em; height: 7px; background: orangered; border-radius: .5em;">
-						<div class="card">
-	  						<div class="expandedImg card-header mb-5">
-	  							<!-- <img src="images/" id="expandedImg" class="card-img-top" width="640" height="426" alt="..."> -->
-	  							<div id="urlDisplay"></div>
+						<div class="card" style="width: 100%;">
+	  						<div class="expandedImg mb-3">
+	  							<img src="images/" id="expandedImg" class="card-img-top" width="640" height="426" alt="...">
 	  						</div>
 	  						<div class="card-body">
 	    						<h4 class="card-title border-bottom pb-3 mb-3"><span id="productname_span" class="text-center"> </span> </h4>
@@ -148,40 +141,6 @@
     	</div>
   	</body>
   	<script>
-
-  		function getUrl(url){
-  			$.ajax({
-  				url:'parsers/fetchUrl',
-  				method:"get",
-  				data:{url:url},
-  				beforeSend:function(){
-  					$("#urlDisplay").html('<i class="spinner-grow"></i>');
-  				},
-  				success:function(data){
-  					$("#urlDisplay").html(data);
-  				}
-  			});
-
-  			$.ajax({
-  				url:'parsers/fetchUrl2',
-  				method:"get",
-  				data:{url:url},
-  				success:function(data){
-  					$("#cover_image").val(data);
-  				}
-  			});
-
-  			$.ajax({
-  				url:'parsers/fetchUrl3',
-  				method:"get",
-  				data:{url:url},
-  				success:function(data){
-  					$("#description").val(data);
-  					$("#description_span").html(data);
-  				}
-  			});
-  		}
-
   		$(function(){
   			$("#description").keyup(function(){
   				var message = $(this).val();

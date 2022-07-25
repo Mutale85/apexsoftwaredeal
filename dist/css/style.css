@@ -33,9 +33,9 @@ a:link, a:active {
 	border: 1px solid gray;
 	background-color: lightgrey;
 }
-.expandedImg img {
+/*.expandedImg img {
 	display: none;
-}
+}*/
 /*==================== LOGIN FORM ==================*/
 .login-page {
     height: 100vh;
@@ -210,9 +210,25 @@ a.learn-more:hover .circle .icon.arrow {
 a.learn-more:hover .button-text {
     color: #fff;
 }
+a.submitProduct {
+    background: black;
+    border-radius: none;
+    padding: 16px 12px;
+    font-size: 18px;
+    border: 1px solid black;
+    letter-spacing: 1px;
+}
 
 /*================= PRODUCTS PAGE =====================*/
-
+.subscribeDiv {
+    width: 50%;
+    margin: 2em auto;
+}
+.descriptions {
+    margin: 3em auto;
+    border: .5px solid #ddd;
+    padding: 1em;
+}
     
 .displayProduct {
     width: 60%;
@@ -249,6 +265,9 @@ img.card-img-top {
         border: none;
         padding: .2em;
         border-bottom: .5px solid #d1d1d1;;
+    }
+    .subscribeDiv {
+        width: 100%;
     }	
 }
 

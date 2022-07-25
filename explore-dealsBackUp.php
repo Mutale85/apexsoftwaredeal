@@ -74,7 +74,7 @@
 							?>
 								<div class="col-md-3 col-sm-12 mb-3">
 									<div class="cards">
-									  	<img src="<?php echo $cover_image ?>" class="card-img-top" alt="<?php echo $cover_image ?>">
+									  	<img src="uploads/<?php echo $cover_image ?>" class="card-img-top" alt="<?php echo $cover_image ?>">
 									  	<div class="card-body">
 									    	<h4 class="card-title"><a href="products/<?php echo preg_replace("#[^a-zA-Z_&()0-9-]#", "-", strtolower($productname)) ?>" class="productID" id="<?php echo $id?>"> <?php echo $productname?></a></h4>
 									    	<p class="card-text">

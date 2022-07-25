@@ -1,12 +1,24 @@
 <?php
 	include "../includes/db.php";
-	if(!empty($_POST['product_id'])){
+	if(!empty($_POST['website_id'])){
 		#'update'
-		$product_id = $_POST['product_id'];
-		
+		$website_id = $_POST['website_id'];
+		$query = $connect->prepare("SELECT * FROM `products` WHERE id = ? ");
+		$query->execute([$website_id]);
+		$row = $query->fetch();
+
+		if ($_FILES['cover_image']['name'] == "") {
+			$cover_image = $row['cover_image'];
+
+		}else{
+			$cover_image = $_FILES['cover_image']['name'];
+			$filename = $_FILES['cover_image']['tmp_name'];
+			$destination = '../uploads/'.basename($cover_image);
+			move_uploaded_file($filename, $destination);
+		}
 		extract($_POST);
 		$sql = $connect->prepare(" UPDATE `products` SET `productname`= ?, `category`= ?,`website_url`= ?,`description`= ?, `monthly_currency`= ?,`amount`= ?,`selling_currency`= ?,`selling_price`= ?, `discount_link`= ?, `price_period`= ?, `cover_image`= ? WHERE id = ? ");
-		$sql->execute([ $productname,  $category, $website_url, $description,  $current_plan_currency, $amount, $selling_currency, $selling_price, $discount_link, $price_period, $cover_image, $product_id]);
+		$sql->execute([ $productname,  $category, $website_url, $description,  $current_plan_currency, $amount, $selling_currency, $selling_price, $discount_link, $price_period, $cover_image, $website_id]);
 
 		echo $website_url . ' Updated';
 
@@ -23,7 +35,10 @@
 		$selling_price = filter_input(INPUT_POST, 'selling_price', FILTER_SANITIZE_SPECIAL_CHARS);
 		$discount_link = filter_input(INPUT_POST, 'discount_link', FILTER_SANITIZE_SPECIAL_CHARS);
 		$price_period = filter_input(INPUT_POST, 'price_period', FILTER_SANITIZE_SPECIAL_CHARS);
-		$cover_image = filter_input(INPUT_POST, 'cover_image', FILTER_SANITIZE_SPECIAL_CHARS);
+		$cover_image = $_FILES['cover_image']['name'];
+		$filename = $_FILES['cover_image']['tmp_name'];
+		$destination = '../uploads/'.basename($cover_image);
+		move_uploaded_file($filename, $destination);
 		
 		$query = $connect->prepare("SELECT * FROM `products` WHERE website_url = ? ");
 		$query->execute([$website_url]);

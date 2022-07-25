@@ -57,7 +57,7 @@
 							<div class="card" >
 							  	
 							  	<div class="card-header" role="group" aria-label="<?php echo $productname ?>">
-								  	<img src="uploads/<?php echo $cover_image ?>" class=" img-fluid" alt="<?php echo $cover_image ?>">
+								  	<img src="<?php echo $cover_image ?>" class=" img-fluid" alt="<?php echo $cover_image ?>">
 								</div>
 							  	<div class="card-body mt-4">
 		    						

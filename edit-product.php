@@ -11,7 +11,7 @@
 	    		$query->execute([$productID]);
 	    		$row = $query->fetch();
 	    		$cover_image = $row['cover_image'];
-	    		$src = 'uploads/'.$cover_image;
+	    		$src = $cover_image;
 	    		$textarea = $row['description'];
 			    	
 			}
@@ -38,6 +38,7 @@
 		    						<div class="form-group mb-3 col-md-4">
 		    							<label class="mb-2 label">Product Name <i class="bi bi-asterisk"></i></label>
 		    							<input type="text" name="productname" id="productname" class="form-control" required>
+		    							<input type="hidden" name="product_id" id="product_id">
 		    						</div>	
 		    						<div class="form-group col-md-4">
 		    							<label class="mb-2 label">Product Category <i class="bi bi-asterisk"></i></label>
@@ -113,11 +114,11 @@
 		    								</select>
 		    							</div>
 		    						</div>
+		    						<!-- <div class="form-group mb-3 col-md-6 mb-3">
+										<label class="mb-2">Cover Image</label> -->
+										<input type="hidden" name="cover_image" id="cover_image" class="form-control" value="<?php echo $src?>">
+									<!-- </div> -->
 		    						<div class="form-group mb-3 col-md-6 mb-3">
-										<label class="mb-2">Cover Image</label>
-										<input type="file" name="cover_image" id="cover_image" class="form-control" onchange="loadFile(event)" accept="image/*">
-									</div>
-		    						<div class="form-group mb-3 col-md-12 mb-3">
 										<label class="mb-2">Discount Link</label>
 										<input type="url" name="discount_link" id="discount_link" class="form-control" required>
 									</div>
@@ -376,6 +377,7 @@
 				data:{product_id:product_id},
 				dataType:"JSON", 
 				success:function(data){
+					$("#product_id").val(data.id);
 					$("#productname").val(data.productname);
 					$("#category").val(data.category);
 					$("#website_url").val(data.website_url);
