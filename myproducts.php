@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php 
-	include("incs/header.php");
-	if(empty($_SESSION['apex_email'])){
-		header("location:./");
-	}
-	$userEmail =  $_SESSION['apex_email'];
-	$user_id = $_SESSION['user_id'];
-	$username = $_SESSION['username'];
-?>
-<style>
-	.btn-outline-secondary {
-		border-radius: 23px;
-	}
-	.openLink:hover {
-		cursor: pointer;
-		background: aliceblue;
-	}
-</style>
-
+	<?php 
+		include("incs/header.php");
+		if(empty($_SESSION['apex_email'])){
+			header("location:./");
+		}
+		$userEmail =  $_SESSION['apex_email'];
+		$user_id = $_SESSION['user_id'];
+		$username = $_SESSION['username'];
+	?>
+	<style>
+		.btn-outline-secondary {
+			border-radius: 23px;
+		}
+		.openLink:hover {
+			cursor: pointer;
+			background: aliceblue;
+		}
+	</style>
 </head>
 <body>
 	<?php include 'incs/nav.php';?>
@@ -50,9 +49,9 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="col-md-12 mt-5 mb-5">
+				<div class="col-md-12 mt-5 mb-5">
 					<div id="fetchProducts"></div>
-				</div> -->
+				</div>
 			</div>
 		</div>
 	</div>

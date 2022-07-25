@@ -26,7 +26,7 @@
 			      	<a class="nav-link" href="register" title="register">Create Account</a>
 			    </li>
 	    		<li class="nav-item">
-	      			<a class="nav-links text-white btn btn-info shadow" href="login" title="login">Submit Product</a>
+	      			<a class="nav-links text-white btn btn-info shadow" href="submit-product" title="submit-product">Submit Product</a>
 	    		</li>
 	  		</ul>
 		</div>

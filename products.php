@@ -70,7 +70,7 @@
 			    						<li class="list-group-item">Old Price: <span class="float-end text-danger"><b><del><?php echo $monthly_currency?>  <?php echo $amount?></del> / <?php echo $price_period ?></b></span></li>
 			    						<li class="list-group-item">New Price: <span class="float-end text-success"><b><?php echo $selling_currency?> <?php echo $selling_price?></b> / <?php echo $price_period ?></span></li>
 			    						<li class="list-group-item">Duration: <span id="price_period_span" class="float-end"><b><?php echo $price_period ?></b></span> </li>
-			    						<li class="list-group-item">Discount link <span id="discount_link_span" class="float-end"><?php echo url_to_clickable_link($discount_link) ?></span></li>
+			    						<li class="list-group-item">Original pricing link <span id="discount_link_span" class="float-end"><?php echo url_to_clickable_link($discount_link) ?></span></li>
 								  	</ul>
 								</div>
 							</div>
@@ -81,7 +81,53 @@
 									if($user_id != $_SESSION['user_id']){
 							?>
 							<!-- We hide a form here -->
-							<button class="btn btn-secondary w-100" type="button">BUY NOW</button>
+							<!-- <button class="btn btn-secondary w-100" type="button">BUY NOW</button> -->
+
+							<form method="POST">
+								<input type="hidden" name="customer_id" id="customer_id" value="<?php echo $_SESSION['user_id']?>" />
+								<input type="hidden" name="customer_email" id="customer_email" value="<?php echo $_SESSION['apex_email'] ?>" />
+								<input type="hidden" name="customer_name" id="customer_name" value="<?php echo $_SESSION['username'] ?>" />
+								<input type="hidden" name="amount" id="amount" value="<?php echo $selling_price?>" />
+								<input type="hidden" name="currency" id="currency" value="<?php echo $selling_currency?>"/>
+								<input type="hidden" name="product_id" id="product_id" value="<?php echo $product_id?>"> 
+								<button type="button" id="start-payment-button" class="btn btn-secondary w-100" onclick="makePayment()">BUY NOW <?php echo $selling_currency?> <?php echo $selling_price?> </button>
+							</form>
+						<script src="https://checkout.flutterwave.com/v3.js"></script>
+				    	<script>
+
+							function makePayment() {
+								var totalMmount = '<?php echo $selling_price?>';
+								// var totalMmount = '48.99';
+								var customer_name = document.getElementById('customer_name').value;
+								var email = document.getElementById('customer_email').value;
+								var consumer_id = document.getElementById('customer_id').value;
+								var currency = document.getElementById('currency').value;
+								var product_id = document.getElementById('product_id').value;
+								FlutterwaveCheckout({
+								  	public_key: "FLWPUBK-0c1afe8a612757cca67c07236e7f5950-X",
+								  	tx_ref: "apexsoftwaredeals-"+email+consumer_id,
+								  	amount: totalMmount,
+								  	currency: currency,
+								  	payment_options: "card, mobilemoneyzambia, ussd",
+								  	redirect_url: "http://localhost/apexsoftwaredeals.com/payments?amount="+totalMmount+"&customer_email="+email+"&consumer_id="+consumer_id+"&customer_name="+customer_name+'&currency='+currency+'&product_id='+$product_id,
+								  	meta: {
+								    	consumer_id: consumer_id,
+								    	consumer_mac: "92a3-912ba-1192a",
+								  	},
+								  	customer: {
+								    	email: email,
+								    // phone_number: "08102909304",
+								    	name: customer_name,
+								  	},
+								  	customizations: {
+								    	title: "apexsoftwaredeals.com",
+								    	description: "Purchase of Discounted Software",
+								    	logo: "https://apexsoftwaredeals.com/images/apexLogo copy.png",
+								    
+								  	},
+								});
+							}
+				    	</script>
 						<?php }
 							}else{?>
 								<a href="login" class="learn-more">
@@ -95,107 +141,7 @@
 						?>
 						</div>
 
-						<!-- Button trigger modal -->
-
-
-						<!-- Offer Modal -->
-						<!-- <div class="modal fade" id="offerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						  	<div class="modal-dialog">
-						    	<div class="modal-content">
-						      		<div class="modal-header">
-						        		<h5 class="modal-title" id="exampleModalLabel">Offer Form</h5>
-						        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      		</div>
-						      		<div class="modal-body">
-						      			<form method="post" id="websiteOfferForm">
-						      				<div class="form-group mb-3">
-						      					<label class="mb-2">Your Offer</label>
-						      					<div class="input-group">
-						      						<span class="input-group-text">USD</span>
-						      						<input type="hidden" name="offer_currency" id="offer_currency" class="form-control" value="USD">
-						      						<input type="number" step="any" name="offer_amount" id="offer_amount" class="form-control" min="0">
-						      					</div>
-						      					<input type="hidden" name="website_id" id="website_id" value="<?php echo $website_id?>">
-						      					<input type="hidden" name="website_url" id="website_url" value="<?php echo $website_url?>">
-						      					<input type="hidden" name="seller_id" id="seller_id" value="<?php echo $user_id?>">
-						      					<input type="hidden" name="seller_email" id="seller_email" value="<?php echo getUserEmail($connect, $user_id)?>">
-						      				</div>
-						      				<div class="form-group mb-3">
-						      					<label class="mb-2">Your Message</label>
-						      					<div class="input-group">
-						      						<span class="input-group-text"><i class="bi bi-circle"></i></span>
-						      						<textarea class="form-control" name="message" id="message"></textarea>
-						      						<input type="hidden" name="buyer_id" id="buyer_id" value="<?php echo $_SESSION['user_id']?>">
-						      						<input type="hidden" name="buyer_email" id="buyer_email" value="<?php echo $_SESSION['user_email_job_portal']?>">
-						      					</div>
-						      				</div>
-						      				<div class="form-group">
-						      					<button class="btn btn-outline-secondary" id="offerBtn" type="submit">Submit Offer</button>
-						      				</div>
-						      			</form>
-						      			<div class="text-white border-top p-3 bg-secondary">
-						      				<h4>Seling Price: <?php echo $selling_currency ?> <?php echo  $selling_price ?></h4>
-							      			<p>The owner will be mailed your offer.</p>
-							      		</div>
-						      		</div>
-							      	<div class="modal-footer">
-							      		
-							      	</div>
-						    	</div>
-						  	</div>
-						</div> -->
-						<!-- Contact Modal -->
-						<!-- <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						  	<div class="modal-dialog">
-						    	<div class="modal-content">
-						      		<div class="modal-header">
-						        		<h5 class="modal-title" id="exampleModalLabel">Contact <?php echo getUserName($connect, getUserEmail($connect, $user_id)); ?></h5>
-						        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      		</div>
-						      		<div class="modal-body">
-						      			<form method="post" id="messageForm">
-						      				<div class="form-group mb-3">
-						      					
-						      					<input type="hidden" name="website_id" id="website_id" value="<?php echo $website_id?>">
-						      					<input type="hidden" name="website_url" id="website_url" value="<?php echo $website_url?>">
-						      					<input type="hidden" name="receiver_id" id="receiver_id" value="<?php echo $user_id?>">
-						      					<input type="hidden" name="receiver_email" id="receiver_email" value="<?php echo getUserEmail($connect, $user_id)?>">
-						      				</div>
-						      				<div class="form-group mb-3">
-						      					<label class="mb-2"><b>Your Message</b></label>
-						      					<div class="input-group">
-						      						<span class="input-group-text"><i class="bi bi-circle"></i></span>
-						      						<textarea class="form-control" name="message" id="message" rows="5"></textarea>
-						      						<input type="hidden" name="sender_id" id="sender_id" value="<?php echo $_SESSION['user_id']?>">
-						      						<input type="hidden" name="sender_email" id="sender_email" value="<?php echo $_SESSION['user_email_job_portal']?>">
-						      					</div>
-						      				</div>
-						      				<div class="form-group">
-						      					<button type="submit" id="sendBtn" class="sendBtn">
-												  	<div class="svg-wrapper-1">
-												    	<div class="svg-wrapper">
-												      		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-												        		<path fill="none" d="M0 0h24v24H0z"></path>
-												        		<path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-												      		</svg>
-												    	</div>
-												  	</div>
-												  	<span id="sendSpan">Send</span>
-												</button>
-						      				</div>
-						      			</form>
-						      			<div class="text-white border-top p-3 bg-secondary">
-						      				<p>
-						      					We encourage you to communicate withing the app so that we can help incase of any miscommunication
-						      				</p>
-							      		</div>
-						      		</div>
-							      	<div class="modal-footer">
-							      		
-							      	</div>
-						    	</div>
-						  	</div>
-						</div> -->
+						
 					</div>
 				</div>
 			</div>

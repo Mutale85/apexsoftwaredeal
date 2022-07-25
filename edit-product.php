@@ -100,6 +100,10 @@
 		    								<input type="number" step="any" name="selling_price" id="selling_price" class="form-control" min="0">
 		    							</div>
 		    						</div>
+		    						<div class="form-group mb-3 col-md-6 mb-3">
+										<label class="mb-2">Discount Code</label>
+										<input type="text" name="discount_code" id="discount_code" class="form-control" required placeholder="64TCOD3E">
+									</div>
 		    						<div class="form-group mb-3 col-md-6">
 		    							<label class="mb-2 label">Price Validity</label>
 		    							<div class="input-group">
@@ -118,8 +122,8 @@
 										<label class="mb-2">Cover Image</label> -->
 										<input type="hidden" name="cover_image" id="cover_image" class="form-control" value="<?php echo $src?>">
 									<!-- </div> -->
-		    						<div class="form-group mb-3 col-md-6 mb-3">
-										<label class="mb-2">Discount Link</label>
+		    						<div class="form-group mb-3 col-md-12 mb-3">
+										<label class="mb-2">Your Pricing Page</label>
 										<input type="url" name="discount_link" id="discount_link" class="form-control" required>
 									</div>
 								<?php if(isset($_SESSION['apex_email'])):?>

@@ -50,9 +50,9 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="col-md-12 mt-5 mb-5">
-					<div id="fetchProducts"></div>
-				</div> -->
+				<div class="col-md-12 mt-5 mb-5">
+					<div id="fetchPurchasedProducts"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -120,21 +120,21 @@
 			}
 		})
 
-		function fetchProducts(){
+		function fetchPurchasedProducts(){
 			
-			var user_id = '<?php echo $user_id?>';
-			var action = "fetchProducts";
+			var customer_email = '<?php echo $_SESSION['apex_email']?>';
+			var action = "fetchPurchasedProducts";
 			$.ajax({
-				url:"parsers/fetchProducts",
+				url:"parsers/fetchPurchasedProducts",
 				method:"post",
-				data:{action:action, user_id:user_id},
+				data:{action:action, customer_email:customer_email},
 				success:function(data){
-					$("#fetchProducts").html(data);
+					$("#fetchPurchasedProducts").html(data);
 				}
 			})
 			
 		}
-		fetchProducts();
+		fetchPurchasedProducts();
 	</script>
 </body>
 </html>

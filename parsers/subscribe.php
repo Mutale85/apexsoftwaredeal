@@ -9,6 +9,10 @@
 	if (isset($_POST['email'])) {
 		
 		$subscriber_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+		if(!filter_var($subscriber_email, FILTER_VALIDATE_EMAIL)){
+			echo "invalid email provided";
+			exit();
+		}
 		
 		$query = $connect->prepare("SELECT * FROM `subscribers` WHERE `subscriber_email` = ? ");
 		$query->execute([$subscriber_email]);
@@ -16,7 +20,8 @@
 			echo $subscriber_email. " is already a registered";
 			exit();
 		}
-		
+
+
 		$sql = $connect->prepare("INSERT INTO `subscribers`( `subscriber_email`) VALUES ( ?)");
 		$sql->execute([ $subscriber_email]);
 		
@@ -71,17 +76,20 @@
 		$mail->Password = EMAIL_PASSWORD;
 		$mail->SMTPSecure = "ssl";//TLS
 		$mail->Port = 465; //TLS port= 587
-		$mail->addAddress($subscriber_email, $subscriber_email); //$inst_admin_email;
+		$mail->addAddress($subscriber_email, $subscriber_email);
+		$mail->AddAddress(MYEMAIL, MYUSERNAME);
 		$mail-> setFrom(EMAIL_USERNAME, 'Software Deals Alert');
 		$mail-> Subject = "Welcome to apex software deals";
 		$mail->isHTML(TRUE);
-		$mail->SMTPDebug = 2;
+		// $mail->SMTPDebug = 2;
 		$mail->Body = $message;
 		if($mail->send()){
 			echo 'Thank you for subscribing, we will be sending you alerts mostly on a thursday'; 
 		}else{
 			echo "Mailer Error: " . $mail->ErrorInfo;
 		}
+
+		
 
 	}
 ?>

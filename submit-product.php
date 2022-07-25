@@ -5,7 +5,8 @@
     	<style>
     		
 			.bi-asterisk {
-				font-size: 11px;
+				font-size: 10px;
+				color: orangered;
 			}
     	</style>
     	
@@ -22,6 +23,10 @@
     			<div class="col-md-6 mb-4">
     				<form method="post" id="productForm" enctype="multipart/form-data">
 						<div class="row">
+							<div class="form-group mb-3 col-md-4">
+    							<label class="mb-2 label"> Product Url <i class="bi bi-asterisk"></i></label>
+    							<input type="url" name="website_url" id="website_url" class="form-control" required onblur="getUrl(this.value)">
+    						</div>
     						<div class="form-group mb-3 col-md-4">
     							<label class="mb-2 label">Product Name <i class="bi bi-asterisk"></i></label>
     							<input type="text" name="productname" id="productname" class="form-control" required>
@@ -52,10 +57,7 @@
     								<option value="Other">Other</option>
     							</select>
     						</div>
-    						<div class="form-group mb-3 col-md-4">
-    							<label class="mb-2 label">Website Url <i class="bi bi-asterisk"></i></label>
-    							<input type="url" name="website_url" id="website_url" class="form-control" required onblur="getUrl(this.value)">
-    						</div>	
+    							
     						<div class="form-group mb-3 col-md-12">
     							<label class="mb-2 label">Description <i class="bi bi-asterisk"></i></label>
     							<textarea class="form-control" name="description" id="description" rows="5"></textarea>
@@ -86,6 +88,10 @@
     								<input type="number" step="any" name="selling_price" id="selling_price" class="form-control" min="0">
     							</div>
     						</div>
+    						<div class="form-group mb-3 col-md-6 mb-3">
+								<label class="mb-2">Discount Code</label>
+								<input type="text" name="discount_code" id="discount_code" class="form-control" required placeholder="64TCOD3E">
+							</div>
     						<div class="form-group mb-3 col-md-6">
     							<label class="mb-2 label">Price Validity</label>
     							<div class="input-group">
@@ -103,7 +109,7 @@
     						
 								<!-- <input type="file" name="cover_image" id="cover_image" class="form-control" onchange="loadFile(event)" required accept="image/*"> -->
 							<input type="hidden" name="cover_image" id="cover_image" class="form-control" required >
-    						<div class="form-group mb-3 col-md-6 mb-3">
+    						<div class="form-group mb-3 col-md-12 mb-3">
 								<label class="mb-2">Your Pricing Page</label>
 								<input type="url" name="discount_link" id="discount_link" class="form-control" required>
 							</div>

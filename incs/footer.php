@@ -234,8 +234,8 @@
                 <div class="single_footer single_footer_address">
                     <h4>Subscribe today</h4>
                     <div class="signup_form">                           
-                        <form action="#" class="subscribe" id="subscribersForm2">
-                            <input type="text" name="email" id="email" class="subscribe__input" placeholder="Enter Email Address">
+                        <form class="subscribe" id="subscribersForm2">
+                            <input type="email" name="email" id="email" class="subscribe__input" placeholder="Enter Email Address" required>
                             <button type="submit" class="subscribe__btn"><img src="images/partner.gif" class="img-fluid" alt="partner" width="30" > <i class="bi bi-envelope"></i></button>
                         </form>
                     </div>
@@ -278,12 +278,13 @@
 
         $("#subscribersForm2").submit(function(e){
             e.preventDefault();
+
             $.ajax({
                 url:"parsers/subscribe",
                 method:"POST",
                 data:$(this).serialize(),
                 beforeload:function(){
-                    $(".subscriberBtn").html("<span class='spinner-grow spinner-grow-sm'></span>");
+                    $(".subscribe__btn").html("<span class='spinner-grow spinner-grow-sm'></span>");
                     
                 },
                 success:function(data){
@@ -295,4 +296,6 @@
         })
     })
 </script>
+
+
 

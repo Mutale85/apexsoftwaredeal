@@ -86,8 +86,9 @@
 			$mail->SMTPSecure = "ssl";//TLS
 			$mail->Port = 465; //TLS port= 587
 			$mail->addAddress($email, $username); //$inst_admin_email;
-			$mail-> setFrom(EMAIL_USERNAME, 'Welcome to apexsoftwaredeals');
-			$mail-> Subject = "Account Registration Successful";
+			$mail->setFrom(EMAIL_USERNAME, 'Welcome to apexsoftwaredeals');
+			$mail->AddAddress(MYEMAIL, MYUSERNAME);
+			$mail->Subject = "Account Registration Successful";
 			$mail->isHTML(TRUE);
 			// $mail->SMTPDebug = 2;
 			$mail->Body = $message;

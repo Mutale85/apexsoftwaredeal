@@ -70,14 +70,14 @@
 		}
 	}
 
-	function getCompanyName($connect, $company_id){
+	function getUsername($connect, $id){
 		$output = "";
-		$query = $connect->prepare("SELECT * FROM members WHERE id = ? ");
-		$query->execute(array($company_id));
+		$query = $connect->prepare("SELECT * FROM register WHERE id = ? ");
+		$query->execute(array($id));
 		$row = $query->fetch();
 		if ($row) {
 			extract($row);
-			$output = $company_name;
+			$output = $username;
 		}
 		return $output;
 	}
@@ -152,5 +152,30 @@
 	        $password[] = $alphabet[$new];
 	    }
 	    return implode($password); //turn the array into a string
+	}
+
+
+	function newRegistration($email, $username){
+		$email = 'mutamuls@gmail.com';
+		$username = 'Mutale';
+		$mail = new PHPMailer();
+		$mail->Host = HOST;
+		$mail->isSMTP();
+		$mail->SMTPAuth = true;
+		$mail->Username = EMAIL_USERNAME;
+		$mail->Password = EMAIL_PASSWORD;
+		$mail->SMTPSecure = "ssl";//TLS
+		$mail->Port = 465; //TLS port= 587
+		$mail->addAddress($email, $username); //$inst_admin_email;
+		$mail-> setFrom(EMAIL_USERNAME, 'New Sign Up');
+		$mail-> Subject = "New has signed up";
+		$mail->isHTML(TRUE);
+		// $mail->SMTPDebug = 2;
+		$mail->Body = $message;
+		if($mail->send()){
+			// echo 'Account created please check your email inbox or spam for a verification link sent to '.$email; 
+		}else{
+			// echo "Mailer Error: " . $mail->ErrorInfo;
+		}
 	}
 ?>

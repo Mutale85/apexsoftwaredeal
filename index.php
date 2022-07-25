@@ -19,7 +19,7 @@
 							<form method="post" id="subscribersForm" class="inline-form">
 								<div class="form-group">
 									<div class="input-group">
-										<input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
+										<input type="email" name="email" id="email" class="form-control" placeholder="Enter Email Address" required>
 										<button class="btn btn-outline-secondary" type="submit" id="submitNow"> <img src="images/partner.gif" class="img-fluid" alt="partner" width="20" > Send me deals</button>
 									</div>
 								</div>
@@ -31,18 +31,6 @@
 						</div>
 					</div>
 					
-					<!-- <div class="col-md-6">
-						<div class="descriptions">
-							<h3>To Software and Digital Products Sellers</h3>
-							<p class="">You won't just be selling life time deals here, you will have the options to to discount your products according up to 12 months. And you keep all you earn and pay nothing for listing while the space is available.</p>
-							<h4>You can sell </h4>
-							<ul class="list-unstyled">
-								<li>Software that you created or have the rights to sell</li>
-								<li>E-books,  they should have a link to or you can let us upload for you</li>
-								<li>Podcasts that you produced or have the exlusive rights to sell</li>
-							</ul>
-						</div>
-					</div> -->
 				</div>
 			</div>
 			
@@ -68,8 +56,8 @@
 						<h2 class="infoTitleTwo mb-3">Skyrocket your Sales</h2>
 						<p class="fs-5 mb-5">There are never too many places to sell and sale your digit products. We want to help you earn from your hard work.</p>
 						<a href="submit-product" title="submit-product" class="btn btn-danger shadow submitProduct">Submit Your Product</a>
-						<div class="mt-3">
-							<p class="fs-5">You won't just be selling life time deals here, you will have the options to to discount your products according up to 12 months. And you keep all you earn and pay nothing for listing while the space is available.</p>
+						<div class="mt-3 text-dark">
+							<p class="fs-5">You won't just be selling life time deals here, you will have the options to discount your products according up to 12 months. And you keep all you earn and pay nothing for listing while the space is available.</p>
 							<h4 class="h-3">You can sell </h4>
 							<ul class="list-unstyled fs-5">
 								<li>Software that you created or have the rights to sell</li>

@@ -18,7 +18,25 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 
-<title>ApexSoftwaredeals - Earning From Your Hard Works</title>
+<!-- Primary Meta Tags -->
+<title>Find the best discounted software for your business growth</title>
+<meta name="title" content="Find the best discounted software for your business growth">
+<meta name="description" content="We bring you validated discounted softwares and other tools that will save you lots of money and help your business grow.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://apexsoftwaredeals.com/">
+<meta property="og:title" content="Find the best discounted software for your business growth">
+<meta property="og:description" content="We bring you validated discounted softwares and other tools that will save you lots of money and help your business grow.">
+<meta property="og:image" content="images/metaImage.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://apexsoftwaredeals.com/">
+<meta property="twitter:title" content="Find the best discounted software for your business growth">
+<meta property="twitter:description" content="We bring you validated discounted softwares and other tools that will save you lots of money and help your business grow.">
+<meta property="twitter:image" content="images/metaImage.png">
+<script defer data-domain="apexsoftwaredeals.com" src="https://plausible.io/js/plausible.js"></script>
 
 <script>
     $(document).ready(function(){
